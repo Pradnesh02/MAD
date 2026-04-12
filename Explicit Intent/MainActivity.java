@@ -1,0 +1,33 @@
+package com.example.explicitintent;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button btnNext;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnNext = findViewById(R.id.btnNext);
+
+        btnNext.setOnClickListener(v -> {
+
+            // Explicit Intent
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+
+            // Passing Data
+            intent.putExtra("name", "Pradnesh P. Khasnis");
+            intent.putExtra("roll", "66");
+            intent.putExtra("batch", "T3");
+
+            startActivity(intent);
+        });
+    }
+}
